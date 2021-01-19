@@ -1,0 +1,15 @@
+{
+  "name": "book-refactoring2-code",
+  "version": "1.0.0",
+  "description": "存储 《重构: 改善既有代码的设计第二版》的一些示例代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./src/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.2.1"
+  }
+}
