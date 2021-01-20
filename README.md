@@ -38,3 +38,5 @@ npx mocha ./src/chapter1/*.test.js
 
 9. 变量改名: `perf` to `aPerformance`, `volumeCredits` to `result`  
 10. 函数变量 `format` 改变成函数声明 `format`  
+11. 函数改名: `format` to `usd`  
+  > `format -> formatAsUSD -> usd`, 表意, 因为需要在模板中使用, 所以太长使用起来不太方便, 因此最后改成 `usd`  
