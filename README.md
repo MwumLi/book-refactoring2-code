@@ -37,3 +37,4 @@ npx mocha ./src/chapter1/*.test.js
    > 由于之前把 `play` 替换成 `platFor`, 这样提炼函数就少了一个局部作用域的变量  
 
 9. 变量改名: `perf` to `aPerformance`, `volumeCredits` to `result`  
+10. 函数变量 `format` 改变成函数声明 `format`  
