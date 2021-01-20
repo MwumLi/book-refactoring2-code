@@ -25,4 +25,5 @@ npx mocha ./src/chapter1/*.test.js
    > 永远将函数的返回值命名为 “result”  
 3. 变量改名: `perf` to `aPerformance`  
    > 动态类型语言中变量命名带上类型很有意义, 这里使用不定冠词 `a` 修饰它强调一个场表演  
-
+4. 提炼函数: `playFor`  
+   > play 变量可以由 performance 变量计算得到, 以查询取代临时变量  
