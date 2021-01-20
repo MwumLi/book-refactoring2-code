@@ -32,4 +32,6 @@ npx mocha ./src/chapter1/*.test.js
    1. 使用 `playFor` 代替 `play` 参数  
    2. 移除 `amountFor` 的 `play` 参数以及调用 `amountFor` 传参  
 
-7. 内联变量: 使用 `amountFor(perf)` 替代 perf
+7. 内联变量: 使用 `amountFor(perf)` 替代 perf  
+8. 提炼函数: 提炼观众量积分逻辑到函数 `volumeCreditsFor`   
+   > 由于之前把 `play` 替换成 `platFor`, 这样提炼函数就少了一个局部作用域的变量  
