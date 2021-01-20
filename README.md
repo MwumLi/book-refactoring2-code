@@ -16,3 +16,8 @@ npm run test
 ```
 npx mocha ./src/chapter1/*.test.js
 ```
+
+## 变化
+
+1. 提炼函数 `amountFor`  
+   > 提炼成内联函数的意义不需要再把外部作用域中的数据传给新提炼的函数, 少了一件操心的事情, 尽管当前实例意义不大
