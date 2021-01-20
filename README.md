@@ -31,3 +31,5 @@ npx mocha ./src/chapter1/*.test.js
 6. 移除 `amountFor` 的 `play` 函数参数  
    1. 使用 `playFor` 代替 `play` 参数  
    2. 移除 `amountFor` 的 `play` 参数以及调用 `amountFor` 传参  
+
+7. 内联变量: 使用 `amountFor(perf)` 替代 perf
