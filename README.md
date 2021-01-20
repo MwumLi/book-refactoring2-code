@@ -27,3 +27,4 @@ npx mocha ./src/chapter1/*.test.js
    > 动态类型语言中变量命名带上类型很有意义, 这里使用不定冠词 `a` 修饰它强调一个场表演  
 4. 提炼函数: `playFor`  
    > play 变量可以由 performance 变量计算得到, 以查询取代临时变量  
+5. 内联变量: 使用 `playFor(perf)` 替换 `statement` 函数中的 `play` 变量  
