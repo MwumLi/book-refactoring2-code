@@ -28,3 +28,5 @@ npx mocha ./src/chapter1/*.test.js
 4. 提炼函数: `playFor`  
    > play 变量可以由 performance 变量计算得到, 以查询取代临时变量  
 5. 内联变量: 使用 `playFor(perf)` 替换 `statement` 函数中的 `play` 变量  
+6. 移除 `amountFor` 的 `play` 函数参数  
+   1. 使用 `playFor` 代替 `play` 参数  
