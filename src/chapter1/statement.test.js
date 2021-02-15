@@ -1,5 +1,5 @@
-var statement = require('./statement.js');
-var expect = require('chai').expect;
+import { statement } from './statement';
+import { expect } from 'chai';
 describe('chapter1', function () {
   it('statement(invoice, plays)', function () {
     const invoices = require('./invoices.json')
