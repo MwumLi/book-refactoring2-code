@@ -1,6 +1,6 @@
-function renderPlainText(data, invoice, plays) {
+function renderPlainText(data, plays) {
   let result = `Statement for ${data.customer}\n`;
-  for (let perf of invoice.performances) {
+  for (let perf of data.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf) / 100)} (${perf.audience} seats)\n`;
   }
 
@@ -10,7 +10,7 @@ function renderPlainText(data, invoice, plays) {
 
   function totalAmount() {
     let totalAmount = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       totalAmount += amountFor(perf);
     }
     return totalAmount;
@@ -18,7 +18,7 @@ function renderPlainText(data, invoice, plays) {
 
   function totalVolumeCredits() {
     let volumeCredits = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of data.performances) {
       volumeCredits += volumeCreditsFor(perf);
     }
     return volumeCredits;
@@ -69,7 +69,8 @@ function renderPlainText(data, invoice, plays) {
 function statement(invoice, plays) {
   const statementData = {};
   statementData.customer = invoice.customer;
-  return renderPlainText(statementData, invoice, plays);
+  statementData.performances = invoice.performances;
+  return renderPlainText(statementData, plays);
 }
 
 module.exports = statement
