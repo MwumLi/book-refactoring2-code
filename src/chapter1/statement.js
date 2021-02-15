@@ -1,7 +1,7 @@
 function renderPlainText(data) {
   let result = `Statement for ${data.customer}\n`;
   for (let perf of data.performances) {
-    result += ` ${perf.play.name}: ${usd(amountFor(perf) / 100)} (${perf.audience} seats)\n`;
+    result += ` ${perf.play.name}: ${usd(perf.amount / 100)} (${perf.audience} seats)\n`;
   }
 
   result += `Amount owed is ${usd(totalAmount() / 100)}\n`;
@@ -11,7 +11,7 @@ function renderPlainText(data) {
   function totalAmount() {
     let totalAmount = 0;
     for (let perf of data.performances) {
-      totalAmount += amountFor(perf);
+      totalAmount += perf.amount;
     }
     return totalAmount;
   }
@@ -39,6 +39,23 @@ function renderPlainText(data) {
       result += Math.floor(aPerformance.audience / 5);
     return result;
   }
+}
+function statement(invoice, plays) {
+  const statementData = {};
+  statementData.customer = invoice.customer;
+  statementData.performances = invoice.performances.map(enrichPerformance);
+  return renderPlainText(statementData);
+
+  function enrichPerformance(aPerformance) {
+    const result = Object.assign({}, aPerformance);
+    result.play = playFor(result);
+    result.amount = amountFor(result);
+    return result;
+  }
+
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
 
   function amountFor(aPerformance) {
     let result = 0;
@@ -60,22 +77,6 @@ function renderPlainText(data) {
         throw new Error(`unknown type: ${aPerformance.play.type}`);
     }
     return result;
-  }
-}
-function statement(invoice, plays) {
-  const statementData = {};
-  statementData.customer = invoice.customer;
-  statementData.performances = invoice.performances.map(enrichPerformance);
-  return renderPlainText(statementData);
-
-  function enrichPerformance(aPerformance) {
-    const result = Object.assign({}, aPerformance);
-    result.play = playFor(result);
-    return result;
-  }
-
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
   }
 }
 
