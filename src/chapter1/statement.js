@@ -1,4 +1,4 @@
-function statement(invoice, plays) {
+function renderPlainText(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
   for (let perf of invoice.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf) / 100)} (${perf.audience} seats)\n`;
@@ -6,6 +6,7 @@ function statement(invoice, plays) {
 
   result += `Amount owed is ${usd(totalAmount() / 100)}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
+  return result;
 
   function totalAmount() {
     let totalAmount = 0;
@@ -64,7 +65,9 @@ function statement(invoice, plays) {
     }
     return result;
   }
-  return result;
+}
+function statement(invoice, plays) {
+  return renderPlainText(invoice, plays);
 }
 
 module.exports = statement
